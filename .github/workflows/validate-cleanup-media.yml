@@ -1,0 +1,29 @@
+name: Validate media cleanup
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile cleanup script
+        run: python -m py_compile cleanup_media.py
+
+      - name: Dry-run cleanup
+        run: python cleanup_media.py --dry-run
