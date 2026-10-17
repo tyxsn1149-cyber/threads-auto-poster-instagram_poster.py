@@ -1,0 +1,155 @@
+{
+  "verified_at": "2026-10-18",
+  "scope": "ig034-ig040",
+  "format": {
+    "duration_seconds": 15,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "video": "h264",
+    "audio": "aac",
+    "narration": false
+  },
+  "files": [
+    {
+      "path": "assets/final-ig034-040/ig034-1.jpg",
+      "sha": "b0dbce67f34c76e8e5bc212d503ca632531e5362",
+      "size": 342780
+    },
+    {
+      "path": "assets/final-ig034-040/ig034-2.jpg",
+      "sha": "47f5a414b1b125c7ac0e650ec1496d0c95037333",
+      "size": 308225
+    },
+    {
+      "path": "assets/final-ig034-040/ig034-3.jpg",
+      "sha": "baa8eab715b306729278540704604b68cd854762",
+      "size": 412558
+    },
+    {
+      "path": "assets/final-ig034-040/ig035-1.jpg",
+      "sha": "9e559a968b3125b9a497a32eadbeab4a6b90b79f",
+      "size": 439929
+    },
+    {
+      "path": "assets/final-ig034-040/ig035-2.jpg",
+      "sha": "4d63dccddd038b0b3444f3e9258ab9afab40bced",
+      "size": 448317
+    },
+    {
+      "path": "assets/final-ig034-040/ig035-3.jpg",
+      "sha": "b21e0d17f51b7fef58cb72d711f88c02320ca538",
+      "size": 472291
+    },
+    {
+      "path": "assets/final-ig034-040/ig036-1.jpg",
+      "sha": "5128fa24f89dc8ae6436334d84d33c2c0cd94a5d",
+      "size": 410358
+    },
+    {
+      "path": "assets/final-ig034-040/ig036-2.jpg",
+      "sha": "e43280e12886c7a8ba25b9d9b093ee994f4e6e6b",
+      "size": 411134
+    },
+    {
+      "path": "assets/final-ig034-040/ig036-3.jpg",
+      "sha": "436fda1ead3837020094a84399832e436287a804",
+      "size": 438391
+    },
+    {
+      "path": "assets/final-ig034-040/ig037-1.jpg",
+      "sha": "cae97e97a0d1b80bda3ce68d0b82501248fa44e2",
+      "size": 421333
+    },
+    {
+      "path": "assets/final-ig034-040/ig037-2.jpg",
+      "sha": "dadcc623469710ce136d4d21fe6ea9146d78fcad",
+      "size": 403258
+    },
+    {
+      "path": "assets/final-ig034-040/ig037-3.jpg",
+      "sha": "6ba4faed029412c4712a85da1896438acad0a050",
+      "size": 416833
+    },
+    {
+      "path": "assets/final-ig034-040/ig038-1.jpg",
+      "sha": "a97dcf82c0bc3a1654bc5f562fb70b422a25b648",
+      "size": 425773
+    },
+    {
+      "path": "assets/final-ig034-040/ig038-2.jpg",
+      "sha": "90a986d519447cb6e591645da064b4acfa5886e7",
+      "size": 420128
+    },
+    {
+      "path": "assets/final-ig034-040/ig038-3.jpg",
+      "sha": "9f34ba9ae6f368b16496f555829157d40046cb6d",
+      "size": 473362
+    },
+    {
+      "path": "assets/final-ig034-040/ig039-1.jpg",
+      "sha": "6acdc8aa6721eee0badd420afe7534236b5b54a5",
+      "size": 425114
+    },
+    {
+      "path": "assets/final-ig034-040/ig039-2.jpg",
+      "sha": "d2d1b7daac0bb4ba6591c7835d9011b7a969d774",
+      "size": 424856
+    },
+    {
+      "path": "assets/final-ig034-040/ig039-3.jpg",
+      "sha": "57df36ac20841c3865ea284b24b3cc406c056fa2",
+      "size": 436968
+    },
+    {
+      "path": "assets/final-ig034-040/ig040-1.jpg",
+      "sha": "8bbc6d2f1881d29eaefb3662755376f9252150c8",
+      "size": 459369
+    },
+    {
+      "path": "assets/final-ig034-040/ig040-2.jpg",
+      "sha": "505b22638f53f3614d270587bfd0d13a56c7886d",
+      "size": 400342
+    },
+    {
+      "path": "assets/final-ig034-040/ig040-3.jpg",
+      "sha": "be260180dba1cef02abce595371156199ab75580",
+      "size": 442041
+    },
+    {
+      "path": "ig034-reel-15s.mp4",
+      "sha": "d4dde0ed1737d5917794dced3bda8505846a19c5",
+      "size": 2628108
+    },
+    {
+      "path": "ig035-reel-15s.mp4",
+      "sha": "1abe598e8b109a20164f2eefc362f23c7b92791c",
+      "size": 3620138
+    },
+    {
+      "path": "ig036-reel-15s.mp4",
+      "sha": "3c07a5bcce8bf9805929a88a639434efdcda5e63",
+      "size": 3441234
+    },
+    {
+      "path": "ig037-reel-15s.mp4",
+      "sha": "87a1854c625ecf465fee19e6398633a0a15c0616",
+      "size": 3285693
+    },
+    {
+      "path": "ig038-reel-15s.mp4",
+      "sha": "f6531570da3cee01044ac7c5fcd4e32901205ceb",
+      "size": 3394334
+    },
+    {
+      "path": "ig039-reel-15s.mp4",
+      "sha": "e1cba135dd0b451e578518c22ed9e65e43e86a6a",
+      "size": 3410887
+    },
+    {
+      "path": "ig040-reel-15s.mp4",
+      "sha": "3f27e413d7c13e4c2fe95c81b8b556423d71a7d0",
+      "size": 3466064
+    }
+  ]
+}
