@@ -5,10 +5,12 @@ from PIL import Image, ImageDraw, ImageFont
 import math
 import subprocess
 import wave
+import os
+from PIL import ImageOps
 
 W, H = 1080, 1920
-FONT_B = "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc"
-FONT_R = "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
+FONT_B = os.environ.get("SNS_FONT", "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc")
+FONT_R = os.environ.get("SNS_FONT", "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc")
 BG = (246, 248, 251)
 NAVY = (25, 46, 68)
 TEXT = (45, 57, 70)
@@ -33,7 +35,7 @@ POSTS = {
         ("情報を組み合わせると\n本人が推測できることがあります", "患者エピソードを\nSNSのネタにしない。"),
     ]),
     "ig037": ("報告・相談 01", [
-        ("「何を報告すればいいか分からない」", "そんなときは、\n最初の一言を決める。"),
+        ("「何を報告すればいいか\n分からない」", "そんなときは、\n最初の一言を決める。"),
         ("まず伝える3つ", "① 何が起きたか\n② 緊急度\n③ 何を相談したいか"),
         ("結論を先に", "「血圧が低下しています。\n今すぐ診察をお願いしたいです」"),
     ]),
@@ -71,29 +73,35 @@ def fit(draw, text, max_width, start, minimum, bold):
 
 
 def slide(path, post_id, tag, index, title, body):
-    im = Image.new("RGB", (W, H), BG)
+    # One original themed illustration per reel; three text layouts retain the script.
+    im = Image.new("RGB", (W, H), (250, 246, 236))
     d = ImageDraw.Draw(im)
-    d.rounded_rectangle((76, 88, 430, 150), radius=30, fill=ACCENT)
-    d.text((102, 102), tag, font=font(29, True), fill=NAVY)
-    d.text((982, 108), f"{index}/3", font=font(28, True), fill=SUB, anchor="ra")
-
-    d.rounded_rectangle((435, 330, 645, 540), radius=44, fill=(255,255,255), outline=LINE, width=4)
-    d.ellipse((510, 395, 570, 455), outline=NAVY, width=7)
-    d.line((540, 455, 540, 486), fill=NAVY, width=7)
-    d.line((512, 486, 568, 486), fill=NAVY, width=7)
-
-    tf = fit(d, title, 900, 76, 46, True)
-    d.multiline_text((540, 680), title, font=tf, fill=NAVY, anchor="ma", spacing=18, align="center")
-    box = d.multiline_textbbox((0, 0), title, font=tf, spacing=18, align="center")
-    y = 720 + (box[3] - box[1])
-    d.rounded_rectangle((340, y, 740, y + 10), radius=5, fill=ACCENT)
-
-    bf = fit(d, body, 860, 49, 34, False)
-    d.multiline_text((540, y + 110), body, font=bf, fill=TEXT, anchor="ma", spacing=22, align="center")
-
-    d.line((78, 1740, 1002, 1740), fill=LINE, width=3)
-    d.text((78, 1790), "看護師のための実務メモ", font=font(30, True), fill=SUB)
-    d.text((1002, 1790), post_id, font=font(28, True), fill=SUB, anchor="ra")
+    ink = (73, 57, 47)
+    d.text((90, 210), tag, font=font(31, True), fill=ink)
+    d.text((990, 210), f"{index}/3", font=font(30), fill=ink, anchor="ra")
+    # Wrap by measured character widths, including existing intentional newlines.
+    def wrap(text, size, width):
+        lines = []
+        for para in text.split("\n"):
+            line = ""
+            for ch in para:
+                if d.textlength(line + ch, font=font(size)) > width and line:
+                    lines.append(line); line = ch
+                else:
+                    line += ch
+            lines.append(line)
+        return "\n".join(lines)
+    title_font = fit(d, title, 880, 59, 44, False)
+    title = wrap(title, title_font.size, 880)
+    d.multiline_text((540, 325), title, font=title_font, fill=ink, anchor="ma", align="center", spacing=17)
+    art = Image.open(Path("assets/storybook-ig034-040") / f"{post_id}.jpg").convert("RGB")
+    art = ImageOps.contain(art, (960, 660), Image.Resampling.LANCZOS)
+    im.paste(art, ((W-art.width)//2, 640+(660-art.height)//2))
+    body = wrap(body, 40, 880)
+    d.multiline_text((540, 1330), body, font=font(40), fill=ink, anchor="ma", align="center", spacing=16)
+    d.line((90, 1710, 990, 1710), fill=(212, 200, 181), width=2)
+    d.text((90, 1750), "看護師のための実務メモ", font=font(28), fill=ink)
+    d.text((990, 1750), post_id, font=font(28), fill=ink, anchor="ra")
     im.save(path, "PNG")
 
 
@@ -124,7 +132,7 @@ def render(post_id, tag, content, work, music):
         images.append(p)
 
     output = Path(f"{post_id}-reel-15s.mp4")
-    cmd = ["ffmpeg", "-y"]
+    cmd = ["ffmpeg", "-y", "-loglevel", "error", "-filter_complex_threads", "1"]
     for p in images:
         cmd += ["-loop", "1", "-t", "5", "-i", str(p)]
     cmd += ["-i", str(music), "-filter_complex",
@@ -132,7 +140,7 @@ def render(post_id, tag, content, work, music):
         "[v0][v1]xfade=transition=slideup:duration=0.5:offset=4.5[x1];"
         "[x1][v2]xfade=transition=slideup:duration=0.5:offset=9.0,tpad=stop_mode=clone:stop_duration=1[v]",
         "-map", "[v]", "-map", "3:a", "-t", "15", "-c:v", "libx264", "-preset", "veryfast",
-        "-crf", "33", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "40k", "-movflags", "+faststart", str(output)]
+        "-crf", "24", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "96k", "-movflags", "+faststart", str(output)]
     subprocess.run(cmd, check=True)
 
 
@@ -141,5 +149,7 @@ with TemporaryDirectory() as temp:
     music = work / "musicbox.wav"
     make_music(music)
     for post_id, (tag, content) in POSTS.items():
+        if os.environ.get("SNS_IDS") and post_id not in os.environ["SNS_IDS"].split(","):
+            continue
         render(post_id, tag, content, work, music)
         print(f"generated {post_id}")
