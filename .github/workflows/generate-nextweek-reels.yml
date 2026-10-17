@@ -1,0 +1,43 @@
+name: Generate next-week Instagram reels
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - generate_nextweek_reels.py
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: generate-nextweek-instagram-reels
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install video dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-noto-cjk
+          python -m pip install --upgrade pillow
+      - name: Generate 15-second reels
+        run: python generate_nextweek_reels.py
+      - name: Commit generated reels
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ig034-reel-15s.mp4 ig035-reel-15s.mp4 ig036-reel-15s.mp4 ig037-reel-15s.mp4 ig038-reel-15s.mp4 ig039-reel-15s.mp4 ig040-reel-15s.mp4
+          if git diff --cached --quiet; then
+            echo "No reel changes to commit."
+            exit 0
+          fi
+          git commit -m "Add Instagram reels ig034 through ig040"
+          git pull --rebase origin main
+          git push origin HEAD:main
