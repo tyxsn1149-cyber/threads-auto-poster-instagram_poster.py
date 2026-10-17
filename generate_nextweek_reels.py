@@ -73,6 +73,10 @@ def fit(draw, text, max_width, start, minimum, bold):
 
 
 def slide(path, post_id, tag, index, title, body):
+    if post_id == "ig036":
+        approved = Path("assets/ig036-approved") / f"ig036-{index}.png"
+        ImageOps.fit(Image.open(approved).convert("RGB"), (W, H), method=Image.Resampling.LANCZOS).save(path)
+        return
     if post_id == "ig034":
         approved = Path("assets/ig034-approved") / f"ig034-{index}.png"
         ImageOps.fit(Image.open(approved).convert("RGB"), (W, H), method=Image.Resampling.LANCZOS).save(path)
