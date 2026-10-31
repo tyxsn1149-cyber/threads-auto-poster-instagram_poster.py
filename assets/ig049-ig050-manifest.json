@@ -1,0 +1,118 @@
+{
+  "posts": {
+    "ig049": {
+      "date": "2026-11-03",
+      "order": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "ig050": {
+      "date": "2026-11-04",
+      "order": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "final_slide": "Approved revised version with save CTA"
+    }
+  },
+  "export": "1080x1350 JPEG, fit without cropping approved artwork",
+  "files": {
+    "ig049-1.jpg": {
+      "size": 439689,
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "git_blob_sha": "1924622ce1e41a9426274f5e33ff2e2fceb95fbb",
+      "approved_source_sha256": "accdda60099bf5a6af59d9d2334785b594c37b901a315b5ee0e1c06a3a5d6b1e"
+    },
+    "ig049-2.jpg": {
+      "size": 482099,
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "git_blob_sha": "1283ff399fd321096e89fb71b9bf3efe714bd0a4",
+      "approved_source_sha256": "a9618690d363eea179956a795e55dfbd7f7e5c7e77bafcc0e85db81513ad9742"
+    },
+    "ig049-3.jpg": {
+      "size": 452358,
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "git_blob_sha": "db7213e61f4647d4551781b4c0792a59563153ce",
+      "approved_source_sha256": "35519adf21c8c00bad7ba573a030cb054ff25b73598dbeda0e864943c9248b6c"
+    },
+    "ig049-4.jpg": {
+      "size": 478706,
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "git_blob_sha": "495143901aa328965a1362479a444fac89147ded",
+      "approved_source_sha256": "7214f5a693396f4e7d685a7ed2d86963d2bfd4ddf7733ad090d217b2d72c2f6c"
+    },
+    "ig049-5.jpg": {
+      "size": 481626,
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "git_blob_sha": "bb40b5ac7872aa65db234e7750d425c24819579f",
+      "approved_source_sha256": "8aa75f5094826e5fc58937d9b4fd371968d241beb09df0db7641af5d0d9dfd4a"
+    },
+    "ig050-1.jpg": {
+      "size": 464885,
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "git_blob_sha": "f7c9c956ae9e488a9e7ad5efc32ad39a0e63a383",
+      "approved_source_sha256": "2f6de3c32593001f3a09d905444a4f7873223fe0323da8f0bf534052c1a0ae51"
+    },
+    "ig050-2.jpg": {
+      "size": 457245,
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "git_blob_sha": "5563be72694f42ade98b960e08afede098f87b50",
+      "approved_source_sha256": "f5118193f816e685cc4e0b618e60a381d1405d4b3d82ea9544bc52b0a2896bc3"
+    },
+    "ig050-3.jpg": {
+      "size": 448392,
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "git_blob_sha": "12fd7ec4a3c4eae98c71658bc99b919e0b1ab904",
+      "approved_source_sha256": "0d21dfdbce4ec59c71d9f1d746978a59fd4eb6b08c87765447a717e1a8732938"
+    },
+    "ig050-4.jpg": {
+      "size": 434693,
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "git_blob_sha": "e5096cfbe2c279e6fdcd58a542f4324925cdb68f",
+      "approved_source_sha256": "f3f52c1f0255a86d8bdd1b1065a1bd5ba5f92d064cf47219ac720f2c14c4f159"
+    },
+    "ig050-5.jpg": {
+      "size": 420270,
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "git_blob_sha": "cd68f44bddc7f272920584f21a5e6ba476432421",
+      "approved_source_sha256": "4f0bde03d80e5dc49eb26d7cbac59669293d9ea42d497825767b9c08b6124e61"
+    }
+  }
+}
