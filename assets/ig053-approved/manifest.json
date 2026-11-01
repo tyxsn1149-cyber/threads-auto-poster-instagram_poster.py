@@ -1,0 +1,22 @@
+{
+  "slide-1.png": {
+    "size": 2311694,
+    "git_blob_sha": "e23cbd2125f5ae80ed41e5cbc48dce713fcd18ac"
+  },
+  "slide-2.png": {
+    "size": 2289717,
+    "git_blob_sha": "b7b277a2b2329575de5dc2042d3d104151136e81"
+  },
+  "slide-3.png": {
+    "size": 2436623,
+    "git_blob_sha": "766127a3220e4df9041e92afa4274f7ac2742f7a"
+  },
+  "music-box.wav": {
+    "size": 3175244,
+    "git_blob_sha": "845787c7001c86d46416242afe708ca0af18f346"
+  },
+  "ig053-reel-18s.mp4": {
+    "size": 1431700,
+    "git_blob_sha": "94c0f0faac573e310e4a2dc7b8a2bd924e30da13"
+  }
+}
