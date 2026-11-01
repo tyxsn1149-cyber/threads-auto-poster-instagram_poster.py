@@ -1,0 +1,46 @@
+{
+  "duration_seconds": 18,
+  "resolution": [
+    1080,
+    1920
+  ],
+  "fps": 30,
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "narration": false,
+  "transitions": [
+    {
+      "type": "slideup",
+      "start": 4,
+      "duration": 0.5
+    },
+    {
+      "type": "slideup",
+      "start": 11,
+      "duration": 0.5
+    }
+  ],
+  "music": "Original synthesized music-box arpeggio",
+  "files": {
+    "slide-1.png": {
+      "size": 2174399,
+      "git_blob_sha": "bcde87ec6373c9d8494a5c9d8532f8b888c1cb78"
+    },
+    "slide-2.png": {
+      "size": 2206746,
+      "git_blob_sha": "043636a85ef3e228302addab61e0f9aaaeba49e1"
+    },
+    "slide-3.png": {
+      "size": 2152101,
+      "git_blob_sha": "6a030942e8e2c47f68031c4f54c8a9fc813ed105"
+    },
+    "music-box.wav": {
+      "size": 3175244,
+      "git_blob_sha": "845787c7001c86d46416242afe708ca0af18f346"
+    },
+    "ig051-reel-18s.mp4": {
+      "size": 1279226,
+      "git_blob_sha": "c896a2ebcd53dab2c35f707e0a19c1e810acaab4"
+    }
+  }
+}
